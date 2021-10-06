@@ -13,12 +13,12 @@ Turbolinks.start();
 ActiveStorage.start();
 
 const onClick = () => {
-  console.log("Vanilla JS Clicked");
+  console.log("Vanilla JS Clicked!");
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const div = document.createElement("div");
-  div.innerText = "Hello Vanilla JS";
+  div.innerText = "Hello Vanilla JS!";
   div.addEventListener("click", onClick);
   document.body.appendChild(div);
 });

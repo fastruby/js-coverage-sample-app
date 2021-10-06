@@ -11,7 +11,7 @@ interface Props {
 
 const Hello = ({ name = "David" }: Props) => {
   const onClick = () => {
-    console.log("React Clicked");
+    console.log("React Clicked!");
   };
 
   return <div onClick={onClick}>Hello {name}!</div>;
