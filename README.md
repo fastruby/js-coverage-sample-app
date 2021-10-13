@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample application with the required configuration to get JavaScript code coverage for JavaScript, TypeScript and React, and also Ruby code coverage, using SimpleCov, Capybara and Istanbul.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+Ruby version: 2.6.5
 
-* System dependencies
+## How to run the test suite
 
-* Configuration
+This app contains the setup to run both RSpec and MiniTest test suits and get the code coverage.
 
-* Database creation
+If you want to use RSpec, you can run `COVERAGE=true rails spec`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you want to use MiniTest, you can run `COVERAGE=true rails test:system` or `COVERAGE=true rails test:all`
