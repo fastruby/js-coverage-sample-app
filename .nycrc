@@ -1,0 +1,12 @@
+{
+  "extension": [
+    ".js",
+    ".ts",
+    ".tsx"
+  ],
+  "exclude": [],
+  "instrument": false,
+  "sourceMap": true,
+  "excludeAfterRemap": true,
+  "report-dir": "js-coverage"
+}

@@ -1,7 +1,15 @@
-const { environment } = require('@rails/webpacker')
-const { VueLoaderPlugin } = require('vue-loader')
-const vue = require('./loaders/vue')
+const { environment } = require("@rails/webpacker");
 
-environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
-environment.loaders.prepend('vue', vue)
-module.exports = environment
+if (process.env.NODE_ENV !== "production") {
+  environment.loaders.append("istanbul-instrumenter", {
+    test: /(\.js)$|(\.jsx)$|(\.ts)$|(\.tsx)$/,
+    use: {
+      loader: "istanbul-instrumenter-loader",
+      options: { esModules: true },
+    },
+    enforce: "post",
+    exclude: /node_modules/,
+  });
+}
+
+module.exports = environment;

@@ -1,3 +1,21 @@
+# if using rspec
+if ENV["RAILS_ENV"] == "test" && ENV["COVERAGE"]
+  require "simplecov"
+  FileUtils.mkdir_p(".nyc_output")
+  Dir.glob("./.nyc_output/*").each{ |f| FileUtils.rm(f) }
+end
+
+def dump_js_coverage
+  return unless ENV["COVERAGE"]
+
+  page_coverage = page.evaluate_script("JSON.stringify(window.__coverage__);")
+  return if page_coverage.blank?
+
+  File.open(Rails.root.join(".nyc_output", "js-#{Random.rand(10000000000)}.json"), "w") do |report|
+    report.puts page_coverage
+  end
+end
+
 require "active_support/core_ext/integer/time"
 
 # The test environment is used exclusively to run your application's
@@ -14,7 +32,7 @@ Rails.application.configure do
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
-  config.eager_load = false
+  config.eager_load = ENV["COVERAGE"]
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true

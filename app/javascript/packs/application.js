@@ -17,8 +17,8 @@ const onClick = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const div = document.createElement("div");
-  div.innerText = "Hello Vanilla JS!";
-  div.addEventListener("click", onClick);
-  document.body.appendChild(div);
+  const button = document.createElement("button");
+  button.innerText = "Hello Vanilla JS!";
+  button.addEventListener("click", onClick);
+  document.body.appendChild(button);
 });
