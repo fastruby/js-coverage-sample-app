@@ -13,8 +13,4 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-
-  def before_teardown
-    dump_js_coverage
-  end
 end
