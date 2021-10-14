@@ -41,5 +41,5 @@ yarn-debug.log*
 
 # coverage dirs
 .nyc_output
-/coverage
-/js-coverage
+coverage
+js-coverage

@@ -1,7 +1,11 @@
-# if using rspec
 if ENV["RAILS_ENV"] == "test" && ENV["COVERAGE"]
+  # require simplecov for the ruby coverage, configured in the .simplecov file
   require "simplecov"
+
+  # create the .nyc_output dir if needed
   FileUtils.mkdir_p(".nyc_output")
+
+  # remove the results from previous runs if any
   Dir.glob("./.nyc_output/*").each{ |f| FileUtils.rm(f) }
 end
 

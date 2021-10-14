@@ -1,6 +1,6 @@
 const { environment } = require("@rails/webpacker");
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "test") {
   environment.loaders.append("istanbul-instrumenter", {
     test: /(\.js)$|(\.jsx)$|(\.ts)$|(\.tsx)$/,
     use: {
