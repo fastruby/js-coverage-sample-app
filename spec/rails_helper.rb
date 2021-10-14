@@ -61,8 +61,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
 
-  # config.after(:each, type: :system) do
-  #   dump_js_coverage if ENV["COVERAGE"]
-  # end
+module RSpec::Rails::SystemExampleGroup
+  def before_teardown
+    dump_js_coverage
+  end
 end

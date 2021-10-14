@@ -6,7 +6,5 @@ RSpec.describe "index tests" do
     visit root_path
     
     assert_selector "button", text: "Hello React with TypeScript!"
-
-    dump_js_coverage
   end
 end
