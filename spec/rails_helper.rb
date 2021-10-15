@@ -30,7 +30,14 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+RSpec.shared_context "dump JS coverage" do
+  after { dump_js_coverage }
+end
+
 RSpec.configure do |config|
+  config.include_context "dump JS coverage", type: :system
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -61,10 +68,4 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-end
-
-module RSpec::Rails::SystemExampleGroup
-  def before_teardown
-    dump_js_coverage
-  end
 end
